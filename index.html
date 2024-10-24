@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
+    <title>Julian Ost Portfolio</title>
     <style>
         /* CSS Reset */
         * {
@@ -41,6 +41,12 @@
             margin-bottom: 1rem;
         }
 
+        .subtitle {
+            font-size: 1.2rem;
+            color: #565656;
+            font-weight: 300;
+        }
+
         /* Projects */
         .project {
             display: grid;
@@ -58,9 +64,13 @@
             width: 100%;
             aspect-ratio: 4/3;
             background-color: #e6e6e3;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .project-content h2 {
@@ -104,6 +114,21 @@
             transform: scaleX(1);
         }
 
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-size: 0.85rem;
+            padding: 0.2rem 0.8rem;
+            background-color: #e6e6e3;
+            border-radius: 2px;
+            color: #565656;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .project {
@@ -124,48 +149,85 @@
 <body>
     <div class="container">
         <header>
-            <h1>Your Name</h1>
+            <h1>Julian Ost</h1>
+            <p class="subtitle">Computer Vision & Neural Rendering Research</p>
         </header>
 
         <main>
             <article class="project">
                 <div class="project-image">
-                    <img src="/api/placeholder/400/300" alt="Project 1">
+                    <img src="https://light.princeton.edu/wp-content/uploads/2023/12/thumbnail_website_tracking.png" alt="Inverse Neural Rendering for Tracking">
                 </div>
                 <div class="project-content">
-                    <h2>Project One</h2>
-                    <p>A brief description of your first project. This should be concise yet informative, explaining the key features and technologies used.</p>
+                    <h2>Inverse Neural Rendering for Explainable Multi-Object Tracking</h2>
+                    <div class="tags">
+                        <span class="tag">3D Multi-Object Tracking</span>
+                        <span class="tag">Inverse Rendering</span>
+                        <span class="tag">Explainability</span>
+                    </div>
+                    <p>We propose to recast 3D multi-object tracking (MOT) from RGB cameras as an Inverse Neural Rendering (INR) problem. By optimizing via a differentiable rendering pipeline over the latent space of pre-trained 3D object representations, we retrieve the latents that best represent object instances in a given input image. We investigate not only an alternate take on tracking but our method also enables examining the generated objects, reasoning about failure cases, and resolving ambiguous cases. We validate the generalization and scaling capabilities of our method on automotive datasets that are completely unseen to our method and do not require fine-tuning.
+                    </p>
                     <div class="project-links">
-                        <a href="#">View Project</a>
-                        <a href="#">Source Code</a>
+                        <a href="https://light.princeton.edu/publication/inverse-rendering-tracking/">Project Page</a>
+                        <a href="https://light.princeton.edu/wp-content/uploads/2024/04/ost_2024_neural_inverse_rendering_object_tracking.pdf">Paper (PDF)</a>
+                        <!-- <a href="#">Code</a> -->
+                    </div>
+                </div>
+            </article>
+
+
+            <article class="project">
+                <div class="project-image">
+                    <img src="assets/new_teaser_pointLF.png" alt="Neural Point Light Fields">
+                </div>
+                <div class="project-content">
+                    <h2>Neural Point Light Fields</h2>
+                    <div class="tags">
+                        <span class="tag">Light Fields</span>
+                        <span class="tag">Neural Rendering</span>
+                        <span class="tag">Point Clouds</span>
+                    </div>
+                    <p>
+                        Neural Point Light Fields represent
+                        scenes implicitly with a light field living on a sparse point
+                        cloud. This approach combines the efficiency of point-based 
+                        representations with the high-quality view synthesis capabilities 
+                        of neural rendering, enabling realistic scene reconstruction from 
+                        sparse inputs. Promoting sparse point clouds to neural implicit
+                        light fields allows us to represent large scenes effectively
+                        with only a single radiance evaluation.
+                        <!-- As neural volumetric rendering methods
+                        require dense sampling of the underlying functional scene
+                        representation, at hundreds of samples along a ray cast
+                        through the volume, they are fundamentally limited to small
+                        scenes with the same objects projected to hundreds of train-
+                        ing views.  -->
+                    </p>
+                    <div class="project-links">
+                        <a href="https://light.princeton.edu/publication/neural-point-light-fields/">Project Page</a>
+                        <a href="https://light.princeton.edu/wp-content/uploads/2022/04/NeuralPointLightFields.pdf">Paper (PDF)</a>
+                        <a href="https://github.com/princeton-computational-imaging/neural-point-light-fields">Code</a>
                     </div>
                 </div>
             </article>
 
             <article class="project">
                 <div class="project-image">
-                    <img src="/api/placeholder/400/300" alt="Project 2">
+                    <img src="https://light.princeton.edu/wp-content/uploads/2021/02/scene_graph_isometric_small.png" alt="Neural Scene Graphs visualization">
                 </div>
                 <div class="project-content">
-                    <h2>Project Two</h2>
-                    <p>Description of your second project. Highlight the problem it solves and your role in its development.</p>
-                    <div class="project-links">
-                        <a href="#">View Project</a>
-                        <a href="#">Source Code</a>
+                    <h2>Neural Scene Graphs</h2>
+                    <div class="tags">
+                        <span class="tag">Neural Rendering</span>
+                        <span class="tag">Scene Understanding</span>
+                        <span class="tag">3D Reconstruction</span>
                     </div>
-                </div>
-            </article>
-
-            <article class="project">
-                <div class="project-image">
-                    <img src="/api/placeholder/400/300" alt="Project 3">
-                </div>
-                <div class="project-content">
-                    <h2>Project Three</h2>
-                    <p>Overview of your third project. Mention the impact and any notable achievements or metrics.</p>
+                    <p>
+                        Neural Scene Graphs combines traditional scene graph representations with neural networks. It presents a first neural rendering approach that decomposes dynamic multi-object scenes into a learned scene graph representation, that encode object transformation and radiance, to efficiently render novel arrangements and views of the scene. The proposed method is assessed on synthetic and real automotive data, validating that our approach learns dynamic scenes - only by observing a video of this scene - and allows for rendering novel photo-realistic views of novel scene compositions and manipulation with unseen sets of objects at unseen poses.</p>
                     <div class="project-links">
-                        <a href="#">View Project</a>
-                        <a href="#">Source Code</a>
+                        <a href="https://light.princeton.edu/publications/">Project Page</a>
+                        <a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Ost_Neural_Scene_Graphs_for_Dynamic_Scenes_CVPR_2021_paper.pdf">Paper (PDF)</a>
+                        <a href="https://github.com/princeton-computational-imaging/neural-scene-graphs">Code</a>
                     </div>
                 </div>
             </article>
