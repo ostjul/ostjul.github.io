@@ -65,6 +65,18 @@
             color: #333;
             text-decoration: none;
             transition: all 0.2s ease;
+            border: none;
+            font-size: inherit;
+            font-family: inherit;
+            cursor: pointer;
+            /* Remove any default button styling */
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            outline: none;
+            box-shadow: none;
+            margin: 0;
+            line-height: inherit;
         }
         
         .social-button:hover {
@@ -75,7 +87,28 @@
         .social-icon {
             width: 20px;
             height: 20px;
-        }        
+        }
+
+        /* Styles for copy notification */
+        .copy-notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 2px;
+            display: none;
+            animation: fadeInOut 2s ease;
+        }
+                
+        @keyframes fadeInOut {
+            0% { opacity: 0; }
+            15% { opacity: 1; }
+            85% { opacity: 1; }
+            100% { opacity: 0; }
+        }
 
         /* Projects */
         .project {
@@ -175,6 +208,31 @@
             }
         }
     </style>
+    <script>
+        // Add this JavaScript to handle email protection
+        function handleEmailClick() {
+            // Reconstruct email from parts to avoid scraping
+            const username = 'julian.ost';  // Replace with your email username
+            const domain = 'princeton.edu';    // Replace with your email domain
+            const email = username + '@' + domain;
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(email).then(() => {
+                // Show notification
+                const notification = document.createElement('div');
+                notification.className = 'copy-notification';
+                notification.textContent = 'Email address copied to clipboard!';
+                document.body.appendChild(notification);
+                notification.style.display = 'block';
+                
+                // Remove notification after animation
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                    notification.remove();
+                }, 2000);
+            });
+        }
+        </script>
 </head>
 <body>
     <div class="container">
@@ -194,6 +252,12 @@
                     </svg>
                     Google Scholar
                 </a>
+                <button onclick="handleEmailClick()" class="social-button">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    Email
+                </button>
             </div>
         </header>
 
