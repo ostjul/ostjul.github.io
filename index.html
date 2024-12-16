@@ -161,6 +161,12 @@
             overflow: hidden;
         }
 
+        .hover-project-image:hover {text-decoration: none} /* Optional (avoid undesired underscore if a is used as wrapper) */
+        .hide {display:none}
+        /* Do the shift: */
+        .hover-project-image:hover img:first-child{display:none}
+        .hover-project-image:hover img:last-child{display:inline-block}
+
         .project-image img {
             width: 100%;
             height: 100%;
@@ -325,7 +331,13 @@
         <main>
             <article class="project">
                 <div class="project-image">
-                    <img src="https://light.princeton.edu/wp-content/uploads/2023/12/thumbnail_website_tracking.png" alt="Inverse Neural Rendering for Tracking">
+                    <!-- <img src="https://light.princeton.edu/wp-content/uploads/2023/12/thumbnail_website_tracking.png" alt="Inverse Neural Rendering for Tracking"> -->
+                    <a class="hover-project-image" href="#">
+                        <!-- path/to/first/visible/image: -->
+                        <img src="https://light.princeton.edu/wp-content/uploads/2023/12/thumbnail_website_tracking.png" />
+                        <!-- path/to/hover/visible/image: -->
+                        <img src="assets/inr_mot_teaser.gif" class="hide" />
+                    </a>
                 </div>
                 <div class="project-content">
                     <h2>Inverse Neural Rendering for Explainable Multi-Object Tracking</h2>
@@ -347,7 +359,13 @@
 
             <article class="project">
                 <div class="project-image">
-                    <img src="assets/new_teaser_pointLF.png" alt="Neural Point Light Fields">
+                    <!-- <img src="assets/new_teaser_pointLF.png" alt="Neural Point Light Fields"> -->
+                    <a class="hover-project-image" href="#">
+                        <!-- path/to/first/visible/image: -->
+                        <img src="assets/new_teaser_pointLF.png" />
+                        <!-- path/to/hover/visible/image: -->
+                        <img src="assets/pointLF_teaser.gif" class="hide" />
+                    </a>
                 </div>
                 <div class="project-content">
                     <h2>Neural Point Light Fields</h2>
@@ -383,7 +401,13 @@
 
             <article class="project">
                 <div class="project-image">
-                    <img src="assets/scene_graph_isometric_small_colored.png" alt="Neural Scene Graphs visualization">
+                    <!-- <img src="assets/scene_graph_isometric_small_colored.png" alt="Neural Scene Graphs visualization"> -->
+                    <a class="hover-project-image" href="#">
+                        <!-- path/to/first/visible/image: -->
+                        <img src="assets/scene_graph_isometric_small_colored.png" />
+                        <!-- path/to/hover/visible/image: -->
+                        <img src="assets/dancing_cars.gif" class="hide" />
+                    </a>
                 </div>
                 <div class="project-content">
                     <h2>Neural Scene Graphs for Dynamic Scenes</h2>
