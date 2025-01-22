@@ -71,6 +71,14 @@ h1 {
     font-weight: 300;
 }
 
+.mini-cv
+{
+    margin-top: 1.2rem;
+    color: #565656;
+    font-weight: 300;
+}
+
+
 /* Social Links */
 .social-links {
     display: flex;
