@@ -188,6 +188,13 @@ h1 {
     margin-bottom: 1.5rem;
 }
 
+.mini-cv h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #232323;
+    margin-bottom: 0rem;
+}
+
 .project-links {
     display: flex;
     gap: 1rem;
